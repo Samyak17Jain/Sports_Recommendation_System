@@ -1,0 +1,255 @@
+<svg width="960" height="700" viewBox="0 0 960 700" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <!-- Arrowhead for relationships -->
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <!-- Single bar (one side) — used for BOTH ends of 1:1 -->
+    <marker id="one" viewBox="0 0 10 14" refX="5" refY="7" markerWidth="8" markerHeight="10" orient="auto-start-reverse">
+      <line x1="5" y1="1" x2="5" y2="13" stroke="#555" stroke-width="1.5"/>
+    </marker>
+    <!-- Single bar end (same shape, for the far end of 1:1) -->
+    <marker id="one-end" viewBox="0 0 10 14" refX="5" refY="7" markerWidth="8" markerHeight="10" orient="auto">
+      <line x1="5" y1="1" x2="5" y2="13" stroke="#555" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- ─── BACKGROUND ─────────────────────────────────────── -->
+  <rect width="960" height="700" fill="#f9f9f8" rx="0"/>
+
+  <!-- ─── TITLE ─────────────────────────────────────────── -->
+  <text x="480" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a1a1a">ER Diagram – Sports Recommendation System</text>
+  <text x="480" y="52" text-anchor="middle" font-size="12" fill="#666">UCS310 · Thapar Institute of Engineering and Technology</text>
+  <line x1="40" y1="62" x2="920" y2="62" stroke="#ccc" stroke-width="0.8"/>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ENTITY: USERS  (centre)
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="355" y="85" width="240" height="185" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="355" y="85" width="240" height="32" rx="6" fill="#3B82F6"/>
+  <rect x="355" y="103" width="240" height="14" fill="#3B82F6"/>
+  <text x="475" y="107" text-anchor="middle" font-size="13" font-weight="bold" fill="white">USERS</text>
+  <line x1="355" y1="117" x2="595" y2="117" stroke="#3B82F6" stroke-width="0.8"/>
+  <rect x="355" y="117" width="240" height="24" fill="#EFF6FF"/>
+  <text x="372" y="133" font-size="11" fill="#1e3a5f" font-weight="bold">PK</text>
+  <text x="400" y="133" font-size="11" fill="#1e3a5f" text-decoration="underline">user_id</text>
+  <text x="520" y="133" font-size="10" fill="#555">NUMBER IDENTITY</text>
+  <line x1="355" y1="141" x2="595" y2="141" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="372" y="156" font-size="11" fill="#1e3a5f">name</text>
+  <text x="520" y="156" font-size="10" fill="#555">VARCHAR2(100) NN</text>
+  <line x1="355" y1="163" x2="595" y2="163" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="372" y="178" font-size="11" fill="#1e3a5f">age</text>
+  <text x="520" y="178" font-size="10" fill="#555">NUMBER NN ✓CHECK</text>
+  <line x1="355" y1="185" x2="595" y2="185" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="372" y="200" font-size="11" fill="#1e3a5f">gender</text>
+  <text x="520" y="200" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="355" y1="207" x2="595" y2="207" stroke="#BFDBFE" stroke-width="0.5"/>
+  <!-- Trigger note -->
+  <text x="475" y="255" text-anchor="middle" font-size="10" fill="#1e40af" font-style="italic">◀ CHECK: age 5–100, gender IN ('Male','Female','Other')</text>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ENTITY: PHYSICAL_TRAITS  (top-left)
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="30" y="85" width="235" height="210" rx="6" fill="#DCFCE7" stroke="#22C55E" stroke-width="1.5"/>
+  <rect x="30" y="85" width="235" height="32" rx="6" fill="#22C55E"/>
+  <rect x="30" y="103" width="235" height="14" fill="#22C55E"/>
+  <text x="147" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PHYSICAL_TRAITS</text>
+  <line x1="30" y1="117" x2="265" y2="117" stroke="#22C55E" stroke-width="0.8"/>
+  <rect x="30" y="117" width="235" height="24" fill="#F0FDF4"/>
+  <text x="47" y="133" font-size="11" fill="#14532d" font-weight="bold">PK</text>
+  <text x="68" y="133" font-size="11" fill="#14532d" text-decoration="underline">trait_id</text>
+  <text x="175" y="133" font-size="10" fill="#555">NUMBER IDENTITY</text>
+  <line x1="30" y1="141" x2="265" y2="141" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="47" y="156" font-size="11" fill="#14532d" font-weight="bold">FK</text>
+  <text x="68" y="156" font-size="11" fill="#14532d">user_id</text>
+  <text x="175" y="156" font-size="10" fill="#555">→ USERS</text>
+  <line x1="30" y1="163" x2="265" y2="163" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="47" y="178" font-size="11" fill="#14532d">height_cm</text>
+  <text x="175" y="178" font-size="10" fill="#555">NUMBER NN</text>
+  <line x1="30" y1="185" x2="265" y2="185" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="47" y="200" font-size="11" fill="#14532d">weight_kg</text>
+  <text x="175" y="200" font-size="10" fill="#555">NUMBER NN</text>
+  <line x1="30" y1="207" x2="265" y2="207" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="47" y="222" font-size="11" fill="#14532d">stamina_level</text>
+  <text x="175" y="222" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="30" y1="229" x2="265" y2="229" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="47" y="244" font-size="11" fill="#14532d">flexibility_level</text>
+  <text x="175" y="244" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="30" y1="251" x2="265" y2="251" stroke="#BBF7D0" stroke-width="0.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ENTITY: LIFESTYLE  (bottom-left)
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="30" y="395" width="235" height="185" rx="6" fill="#FEF9C3" stroke="#EAB308" stroke-width="1.5"/>
+  <rect x="30" y="395" width="235" height="32" rx="6" fill="#EAB308"/>
+  <rect x="30" y="413" width="235" height="14" fill="#EAB308"/>
+  <text x="147" y="417" text-anchor="middle" font-size="13" font-weight="bold" fill="white">LIFESTYLE</text>
+  <line x1="30" y1="427" x2="265" y2="427" stroke="#EAB308" stroke-width="0.8"/>
+  <rect x="30" y="427" width="235" height="24" fill="#FEFCE8"/>
+  <text x="47" y="443" font-size="11" fill="#713f12" font-weight="bold">PK</text>
+  <text x="68" y="443" font-size="11" fill="#713f12" text-decoration="underline">lifestyle_id</text>
+  <text x="175" y="443" font-size="10" fill="#555">NUMBER IDENTITY</text>
+  <line x1="30" y1="451" x2="265" y2="451" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="47" y="466" font-size="11" fill="#713f12" font-weight="bold">FK</text>
+  <text x="68" y="466" font-size="11" fill="#713f12">user_id</text>
+  <text x="175" y="466" font-size="10" fill="#555">→ USERS</text>
+  <line x1="30" y1="473" x2="265" y2="473" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="47" y="488" font-size="11" fill="#713f12">activity_level</text>
+  <text x="175" y="488" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="30" y1="495" x2="265" y2="495" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="47" y="510" font-size="11" fill="#713f12">free_time_hours</text>
+  <text x="175" y="510" font-size="10" fill="#555">NUMBER NN</text>
+  <line x1="30" y1="517" x2="265" y2="517" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="47" y="532" font-size="11" fill="#713f12">health_issue</text>
+  <text x="175" y="532" font-size="10" fill="#555">VARCHAR2(100)</text>
+  <line x1="30" y1="539" x2="265" y2="539" stroke="#FDE68A" stroke-width="0.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ENTITY: INTERESTS  (bottom-centre)
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="355" y="395" width="235" height="210" rx="6" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/>
+  <rect x="355" y="395" width="235" height="32" rx="6" fill="#EC4899"/>
+  <rect x="355" y="413" width="235" height="14" fill="#EC4899"/>
+  <text x="472" y="417" text-anchor="middle" font-size="13" font-weight="bold" fill="white">INTERESTS</text>
+  <line x1="355" y1="427" x2="590" y2="427" stroke="#EC4899" stroke-width="0.8"/>
+  <rect x="355" y="427" width="235" height="24" fill="#FDF2F8"/>
+  <text x="372" y="443" font-size="11" fill="#831843" font-weight="bold">PK</text>
+  <text x="396" y="443" font-size="11" fill="#831843" text-decoration="underline">interest_id</text>
+  <text x="500" y="443" font-size="10" fill="#555">NUMBER IDENTITY</text>
+  <line x1="355" y1="451" x2="590" y2="451" stroke="#FBCFE8" stroke-width="0.5"/>
+  <text x="372" y="466" font-size="11" fill="#831843" font-weight="bold">FK</text>
+  <text x="396" y="466" font-size="11" fill="#831843">user_id</text>
+  <text x="500" y="466" font-size="10" fill="#555">→ USERS</text>
+  <line x1="355" y1="473" x2="590" y2="473" stroke="#FBCFE8" stroke-width="0.5"/>
+  <text x="372" y="488" font-size="11" fill="#831843">prefers_indoor</text>
+  <text x="500" y="488" font-size="10" fill="#555">VARCHAR2(5) ✓CHECK</text>
+  <line x1="355" y1="495" x2="590" y2="495" stroke="#FBCFE8" stroke-width="0.5"/>
+  <text x="372" y="510" font-size="11" fill="#831843">prefers_team</text>
+  <text x="500" y="510" font-size="10" fill="#555">VARCHAR2(5) ✓CHECK</text>
+  <line x1="355" y1="517" x2="590" y2="517" stroke="#FBCFE8" stroke-width="0.5"/>
+  <text x="372" y="532" font-size="11" fill="#831843">competitiveness</text>
+  <text x="500" y="532" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="355" y1="539" x2="590" y2="539" stroke="#FBCFE8" stroke-width="0.5"/>
+  <!-- Note about prefers_indoor now used in view -->
+  <text x="372" y="554" font-size="9" fill="#9d174d" font-style="italic">★ prefers_indoor matched to sport_type in VIEW</text>
+  <line x1="355" y1="560" x2="590" y2="560" stroke="#FBCFE8" stroke-width="0.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ENTITY: SPORTS  (right)
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="670" y="170" width="255" height="330" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="670" y="170" width="255" height="32" rx="6" fill="#7C3AED"/>
+  <rect x="670" y="188" width="255" height="14" fill="#7C3AED"/>
+  <text x="797" y="192" text-anchor="middle" font-size="13" font-weight="bold" fill="white">SPORTS</text>
+  <line x1="670" y1="202" x2="925" y2="202" stroke="#7C3AED" stroke-width="0.8"/>
+  <rect x="670" y="202" width="255" height="24" fill="#F5F3FF"/>
+  <text x="687" y="218" font-size="11" fill="#3b0764" font-weight="bold">PK</text>
+  <text x="708" y="218" font-size="11" fill="#3b0764" text-decoration="underline">sport_id</text>
+  <text x="830" y="218" font-size="10" fill="#555">NUMBER IDENTITY</text>
+  <line x1="670" y1="226" x2="925" y2="226" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="241" font-size="11" fill="#3b0764">sport_name</text>
+  <text x="830" y="241" font-size="10" fill="#555">VARCHAR2(100) NN</text>
+  <line x1="670" y1="248" x2="925" y2="248" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="263" font-size="11" fill="#3b0764">sport_type</text>
+  <text x="830" y="263" font-size="10" fill="#555">VARCHAR2(30) ✓CHECK</text>
+  <line x1="670" y1="270" x2="925" y2="270" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="285" font-size="11" fill="#3b0764">required_stamina</text>
+  <text x="830" y="285" font-size="10" fill="#555">VARCHAR2(20) ✓CHECK</text>
+  <line x1="670" y1="292" x2="925" y2="292" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="307" font-size="11" fill="#3b0764">is_team_sport</text>
+  <text x="830" y="307" font-size="10" fill="#555">VARCHAR2(5) ✓CHECK</text>
+  <line x1="670" y1="314" x2="925" y2="314" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="329" font-size="11" fill="#3b0764">min/max_weight_kg</text>
+  <text x="830" y="329" font-size="10" fill="#555">NUMBER ✓CHECK</text>
+  <line x1="670" y1="336" x2="925" y2="336" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="351" font-size="11" fill="#3b0764">min_time_required_hrs</text>
+  <text x="830" y="351" font-size="10" fill="#555">NUMBER ✓CHECK</text>
+  <line x1="670" y1="358" x2="925" y2="358" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="373" font-size="11" fill="#3b0764">low_impact</text>
+  <text x="830" y="373" font-size="10" fill="#555">VARCHAR2(5) ✓CHECK</text>
+  <line x1="670" y1="380" x2="925" y2="380" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="395" font-size="11" fill="#3b0764">min_age / max_age</text>
+  <text x="830" y="395" font-size="10" fill="#555">NUMBER ✓CHECK</text>
+  <line x1="670" y1="402" x2="925" y2="402" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="417" font-size="11" fill="#3b0764">equipment_required</text>
+  <text x="830" y="417" font-size="10" fill="#555">VARCHAR2(100) NN</text>
+  <line x1="670" y1="424" x2="925" y2="424" stroke="#DDD6FE" stroke-width="0.5"/>
+  <!-- View matching rules note inside SPORTS box -->
+  <text x="687" y="441" font-size="9" fill="#5b21b6" font-style="italic">VIEW matches: weight, age, time, stamina,</text>
+  <text x="687" y="453" font-size="9" fill="#5b21b6" font-style="italic">team pref, indoor pref ★, health impact</text>
+  <line x1="670" y1="459" x2="925" y2="459" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="472" font-size="9" fill="#5b21b6" font-style="italic">★ NEW: prefers_indoor → sport_type match</text>
+  <line x1="670" y1="480" x2="925" y2="480" stroke="#DDD6FE" stroke-width="0.5"/>
+  <text x="687" y="493" font-size="9" fill="#5b21b6" font-style="italic">6 users (incl. User 6: deliberate no-match)</text>
+
+  <!-- ═══════════════════════════════════════════════════════
+       RELATIONSHIPS — all 1:1 corrected to double single-bar
+  ═══════════════════════════════════════════════════════ -->
+
+  <!-- USERS 1 ── has ── 1 PHYSICAL_TRAITS -->
+  <!-- Draw line with single-bar on both ends -->
+  <line x1="355" y1="155" x2="265" y2="155" stroke="#555" stroke-width="1.5"/>
+  <!-- Left end bar -->
+  <line x1="268" y1="147" x2="268" y2="163" stroke="#555" stroke-width="1.8"/>
+  <!-- Right end bar -->
+  <line x1="352" y1="147" x2="352" y2="163" stroke="#555" stroke-width="1.8"/>
+  <rect x="285" y="142" width="46" height="18" rx="4" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="308" y="155" text-anchor="middle" font-size="9.5" fill="#333">has</text>
+  <text x="357" y="149" font-size="10" fill="#555">1</text>
+  <text x="250" y="149" font-size="10" fill="#555">1</text>
+
+  <!-- USERS 1 ── records ── 1 LIFESTYLE -->
+  <line x1="410" y1="270" x2="185" y2="395" stroke="#555" stroke-width="1.5"/>
+  <!-- Left end bar (near lifestyle) -->
+  <line x1="179" y1="388" x2="193" y2="401" stroke="#555" stroke-width="1.8"/>
+  <!-- Right end bar (near users) -->
+  <line x1="404" y1="263" x2="418" y2="276" stroke="#555" stroke-width="1.8"/>
+  <rect x="265" y="310" width="60" height="18" rx="4" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="295" y="323" text-anchor="middle" font-size="9.5" fill="#333">records</text>
+  <text x="418" y="268" font-size="10" fill="#555">1</text>
+  <text x="157" y="393" font-size="10" fill="#555">1</text>
+
+  <!-- USERS 1 ── has ── 1 INTERESTS -->
+  <line x1="472" y1="270" x2="468" y2="395" stroke="#555" stroke-width="1.5"/>
+  <!-- Bottom end bar -->
+  <line x1="461" y1="392" x2="476" y2="392" stroke="#555" stroke-width="1.8"/>
+  <!-- Top end bar -->
+  <line x1="465" y1="272" x2="480" y2="272" stroke="#555" stroke-width="1.8"/>
+  <rect x="432" y="322" width="42" height="18" rx="4" fill="#fff" stroke="#aaa" stroke-width="0.8"/>
+  <text x="453" y="335" text-anchor="middle" font-size="9.5" fill="#333">has</text>
+  <text x="478" y="268" font-size="10" fill="#555">1</text>
+  <text x="474" y="390" font-size="10" fill="#555">1</text>
+
+  <!-- USERS / INTERESTS ── matched via VIEW ── SPORTS  (N:M dashed) -->
+  <line x1="595" y1="200" x2="670" y2="300" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 3"
+        marker-end="url(#arr)"/>
+  <rect x="590" y="228" width="96" height="32" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="0.8"/>
+  <text x="638" y="241" text-anchor="middle" font-size="9" fill="#4c1d95" font-weight="bold">matched via</text>
+  <text x="638" y="253" text-anchor="middle" font-size="8.5" fill="#6d28d9">VIEW / JOIN</text>
+  <text x="598" y="210" font-size="10" fill="#7C3AED">N</text>
+  <text x="673" y="298" font-size="10" fill="#7C3AED">M</text>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LEGEND
+  ═══════════════════════════════════════════════════════ -->
+  <rect x="30" y="645" width="900" height="42" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="0.8"/>
+  <text x="50" y="663" font-size="10" fill="#374151" font-weight="bold">Legend:</text>
+  <!-- PK -->
+  <rect x="104" y="652" width="22" height="14" rx="2" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1"/>
+  <text x="115" y="663" text-anchor="middle" font-size="9" fill="#1e3a5f" font-weight="bold">PK</text>
+  <text x="130" y="663" font-size="10" fill="#374151"> = Primary Key</text>
+  <!-- FK -->
+  <rect x="242" y="652" width="22" height="14" rx="2" fill="#F0FDF4" stroke="#22C55E" stroke-width="1"/>
+  <text x="253" y="663" text-anchor="middle" font-size="9" fill="#14532d" font-weight="bold">FK</text>
+  <text x="268" y="663" font-size="10" fill="#374151"> = Foreign Key</text>
+  <!-- 1:1 bar symbol -->
+  <line x1="385" y1="659" x2="415" y2="659" stroke="#555" stroke-width="1.5"/>
+  <line x1="388" y1="653" x2="388" y2="665" stroke="#555" stroke-width="1.8"/>
+  <line x1="412" y1="653" x2="412" y2="665" stroke="#555" stroke-width="1.8"/>
+  <text x="420" y="663" font-size="10" fill="#374151"> = One-to-One (1:1)</text>
+  <!-- Dashed -->
+  <line x1="560" y1="659" x2="590" y2="659" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+  <text x="595" y="663" font-size="10" fill="#374151"> = Derived via VIEW (N:M)</text>
+  <!-- CHECK -->
+  <text x="760" y="663" font-size="10" fill="#374151">✓CHECK = constraint enforced  |  NN = NOT NULL</text>
+</svg>
