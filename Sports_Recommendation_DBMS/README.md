@@ -2,7 +2,7 @@
 ### UCS310 – Database Management System | Thapar Institute of Engineering and Technology
 
 **Submitted by:** Samyak Jain (1024170400) · Sangam Sangwan (1024170388)  
-**Batch:** 2Q34 | **Instructor:** Ms. Gayatri Saxena | **Academic Year:** 2024–2025
+**Batch:** 2Q34 | **Instructor:** Ms. Gayatri Saxena | **Academic Year:** 2025–2026
 
 ---
 
